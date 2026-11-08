@@ -35,7 +35,7 @@ Bekleme ve koşuyu sürekli döndürüyorum. Hareket ederken koşuya, durunca be
 
 İlk denemede koşu ve saldırı okunuyordu ama karakter düz ve koyu kalmıştı. Pelerindeki kıvrımlar ve tonlar eksikti, el ve ayaklar belirsizdi. Teknik olarak hareket etmesi, istediğim görünüme ulaştığı anlamına gelmedi.
 
-64 piksellik denemede koşarken pelerin bacakları örtüyordu; karakter kayıyormuş gibi görünüyordu. Saldırıda fener tuvalden taşıyor, Uğurla'da asa yüzden geçiyordu. Bunları düzelttirdim. Maskeli Yasçı kıyafetine geçince de kanca ters kıvrılıp feneri yüze düşürdü, bacaklar kısa kaldı; o çizimi de yeniden düzelttirdim.
+64 piksellik denemede koşarken pelerin bacakları örtüyordu; karakter kayıyormuş gibi görünüyordu. Saldırıda fener tuvalden taşıyordu, Uğurla'da asa yüzden geçiyordu. Bunları düzelttirdim. Maskeli Yasçı kıyafetine geçince de kanca ters kıvrılıp feneri yüze düşürdü, bacaklar kısa kaldı; o çizimi de yeniden düzelttirdim.
 
 ## Sırada ne var?
 

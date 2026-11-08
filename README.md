@@ -17,8 +17,9 @@ Bu serinin temeli tam yapay zekâ şeffaflığına dayanıyor:
 - **Kararlar & Yönetmenlik (Bilal):** Sanat tarzı, oyun hissi, mekanikler, kamera açısı ve nelerin çöpe atılacağı benim kararım.
 - **Kod (Claude):** Oyun mimarisi, matematiksel hesaplamalar, gölgelendirme algoritmaları, animasyon ve oynanış kodları Claude tarafından yazılıyor.
 - **Görseller (Codex):** Büyük set parçaları ve atmosferik konsept çizimleri Codex tarafından üretiliyor.
+- **Kodla piksel çizim:** Kodla çizilen parçalar (ızgara/palet dönüşümü, heykel başı denemeleri) kendi açık kaynak motorum [pixel-art-engine](https://github.com/bilalfarukozdemir/pixel-art-engine) ile yapılıyor.
 
-Oyun, yazı tabanlı oyunumun dünyasında geçiyor; bu ilk sahnede henüz hikâye yok.
+Oyun, [yazı tabanlı oyunum Veyra: Kırık Ölüm](https://play.google.com/store/apps/details?id=com.ironcoreapps.veyra)'ün dünyasında geçiyor; bu ilk sahnede henüz hikâye yok.
 
 ---
 

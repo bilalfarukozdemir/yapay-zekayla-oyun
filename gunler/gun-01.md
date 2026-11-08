@@ -1,6 +1,6 @@
 # Gün 1: Fikirden İlk Oynanabilir Sahneye
 
-Tek bir günde bir ilham panosundan yola çıkıp, yazı tabanlı oyunumun dünyasında geçen ve telefonda oynanabilen 2D piksel aksiyon sahnesine vardım.
+Tek bir günde bir ilham panosundan yola çıkıp, [yazı tabanlı oyunum Veyra: Kırık Ölüm](https://play.google.com/store/apps/details?id=com.ironcoreapps.veyra)'ün dünyasında geçen ve telefonda oynanabilen 2D piksel aksiyon sahnesine vardım.
 
 ---
 
@@ -25,6 +25,7 @@ Karakterimiz Korel'in piksellerle çizilmesinden başladık; adım adım sahneye
   - "Matematiksel durmasın, cetvel hissi vermesin" kuralı.
   - Karakter kıyafeti seçimi (Maskeli Yasçı).
   - Ölçek kararı: Yakın kamera yerine uzaktan kamera ("Yüzüklerin Efendisi gibi, oyuncu devasa dünyada kendini küçük hissetsin").
+- [pixel-art-engine](https://github.com/bilalfarukozdemir/pixel-art-engine): kendi açık kaynak piksel sanat motorum; kodla çizimler ve Codex görselini ızgara/palete oturtma bununla yapıldı.
 
 ---
 

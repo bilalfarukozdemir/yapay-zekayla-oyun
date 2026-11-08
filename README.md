@@ -41,6 +41,10 @@ Her devlog videosuna karşılık `gunler/` klasörü altında bir gün dosyası 
 
 - [Gün 1: Fikirden İlk Oynanabilir Sahneye](gunler/gun-01.md) — Pinterest panosundan ilham alıp dev set parçaları, hibrit piksel tekniği ve ilk web sürümüne uzanan ilk gün.
 
+## Teknikler
+
+- [Animasyonu nasıl yapıyorum?](teknikler/animasyon.md)
+
 ---
 
 ## Lisans

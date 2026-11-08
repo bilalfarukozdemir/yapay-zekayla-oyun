@@ -1,11 +1,12 @@
 # Yapay Zekâyla Oyun Yapıyorum — Yöntem Defteri
 
-Selam, ben Bilal. Gündüz başka işte çalışıyorum, akşamları ise yapay zekâ araçlarıyla hayalimdeki 2D piksel aksiyon oyununu geliştiriyorum. Bu serüveni YouTube ve TikTok üzerinde **"Yapay zekâyla oyun yapıyorum — Gün N"** devlog serisi olarak paylaşıyorum.
+Selam, ben Bilal. Yapay zekâ araçlarıyla 2D piksel aksiyon oyunumu geliştiriyorum. Bu serüveni YouTube ve TikTok üzerinde **"Yapay zekâyla oyun yapıyorum — Gün N"** devlog serisi olarak paylaşıyorum.
 
 Bu depo, o serinin **yöntem defteri**. Burada oyunun kaynak kodu yok; her video için o gün neler yaptığımı, hangi teknikleri kullandığımı, nelerin işe yarayıp yapay zekânın nerede tıkandığını ve çıkardığım somut dersleri açıkça belgeliyorum.
 
-- **YouTube Kanalı:** [@bilaldevlog](https://youtube.com/@bilaldevlog)
-- **Tüm Bağlantılar & Oyunu Dene:** [link.vitrincim.com](https://link.vitrincim.com)
+- **Oyunu Dene:** [Tarayıcıda oyna](https://veyra-aksiyon.vercel.app)
+- **Videolar:** [YouTube @bilaldevlog](https://youtube.com/@bilaldevlog) — TikTok, Instagram, X ve Threads'te de aynı ad: `bilaldevlog`
+- **Tüm linkler:** [link.vitrincim.com](https://link.vitrincim.com)
 
 ---
 
@@ -17,7 +18,7 @@ Bu serinin temeli tam yapay zekâ şeffaflığına dayanıyor:
 - **Kod (Claude):** Oyun mimarisi, matematiksel hesaplamalar, gölgelendirme algoritmaları, animasyon ve oynanış kodları Claude tarafından yazılıyor.
 - **Görseller (Codex):** Büyük set parçaları ve atmosferik konsept çizimleri Codex tarafından üretiliyor.
 
-Oyunun hikâyesi ve atmosferi ise yıllardır üzerine düşündüğüm yazı tabanlı oyunumun dünyasında geçiyor.
+Oyun, yazı tabanlı oyunumun dünyasında geçiyor; bu ilk sahnede henüz hikâye yok.
 
 ---
 
@@ -37,7 +38,7 @@ Her devlog videosuna karşılık `gunler/` klasörü altında bir gün dosyası 
 
 ## Günler
 
-- [Gün 1: Fikirden İlk Oynanabilir Sahneye](gunler/gun-01.md) — Pinterest panosundan ilham alıp dev set parçaları, hibrit piksel tekniği ve ilk web sürümüne uzanan 24 saat.
+- [Gün 1: Fikirden İlk Oynanabilir Sahneye](gunler/gun-01.md) — Pinterest panosundan ilham alıp dev set parçaları, hibrit piksel tekniği ve ilk web sürümüne uzanan ilk gün.
 
 ---
 

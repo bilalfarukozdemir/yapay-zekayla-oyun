@@ -8,7 +8,7 @@ Tek bir günde bir ilham panosundan yola çıkıp, yazı tabanlı oyunumun düny
 
 Günün başında yalnızca bir görsel ilham panosu ve kafamdaki karanlık atmosfer vardı. Sıra tabanlı mekanikleri bir kenara bırakıp gerçek zamanlı 2D yandan görünümlü bir aksiyon dünyası kurmaya karar verdim.
 
-Karakterimiz Korel'in piksellerle çizilmesinden başladık; adım adım sahneye kayalar, terk edilmiş bir köy, uzak bir kale, ışık alan su birikintileri ve devasa bir tanrı başı heykeli ekledik. Günün sonunda 6 katmanlı derinliğe (parallax) sahip, fener ışığıyla karanlığı aydınlatan, yürüme, koşma, kılıç savurma ve Uğurla animasyonları çalışan bir web sürümü ortaya çıktı. Arkadaşlarımın telefonlarında test edebileceği canlı bir bağlantı açtım.
+Karakterimiz Korel'in piksellerle çizilmesinden başladık; adım adım sahneye kayalar, terk edilmiş bir köy, uzak bir kale, ışık alan su birikintileri ve devasa bir tanrı başı heykeli ekledik. Günün sonunda 6 katmanlı derinliğe (parallax) sahip, fener ışığıyla karanlığı aydınlatan, bekleme, koşu, saldırı ve Uğurla animasyonları çalışan bir web sürümü ortaya çıktı. Arkadaşlarımın telefonlarında test edebileceği canlı bir bağlantı açtım.
 
 ---
 
@@ -17,7 +17,7 @@ Karakterimiz Korel'in piksellerle çizilmesinden başladık; adım adım sahneye
 - **Claude (Kod ve Mantık):**
   - Phaser tabanlı oyun döngüsü ve 6 katmanlı parallax sahne mimarisi.
   - Prosedürel çevre algoritmaları: fbm (fractional brownian motion) gürültüsü, alan bükme (domain warping), siluet aşındırma.
-  - Dinamik ışık: Fener için çarpımsal ısıtma (ADD blending) ve yüzey temaslarında sıcak renk tonlaması.
+  - Dinamik ışık: İlk sahne turlarında çarpımsal ısıtma ve yüzeylerde sıcak tonlama; oynanabilir sürümde Korel’le yürüyen fener ışığı için eklemeli karışım (ADD blending).
   - Hibrit piksel dönüştürücü: Codex'ten gelen yüksek çözünürlüklü illüstrasyonları alan ortalamasıyla küçültme, k-means (24 renk) kümeleme ile palete sabitleme ve arka plan pusuyla değer eşleme (value mapping).
 - **Codex (Büyük Set Parçaları ve Atmosfer Çizimleri):**
   - Sahnedeki devasa tanrı başı heykeli, dev kırık kılıç ve yıkık geçit kapısı için illüstrasyon üretimi.
@@ -37,7 +37,7 @@ Karakterimiz Korel'in piksellerle çizilmesinden başladık; adım adım sahneye
 480×270 çözünürlükle başladığımız sahnede kayalar önce düz duvar gibi durdu, sütunlar cetvelle çizilmiş gibiydi, bulutlar ise elips şeklindeydi. Claude'a gürültü fonksiyonları ve siluet aşındırma ekleterek kenarları kırdık, kaleyi eğik kulelerle donattık, kayalara dikey tabakalar ve çatlaklar verdik.
 
 ### 3. Kamerayı Uzaklaştırmak (Ölçek Devrimi)
-Sahne güzelleşiyordu ama bir şeyler eksikti. Karar anı burada geldi: Kamerayı 480 pikselden 960×540 genişliğe çektik. Karakter ekranda küçüldü, arka plana devasa gotik kale ve yıkık heykeller yerleşti. Oyuncu o kasvetli coğrafyada küçücük kalınca aradığım epik atmosfer tam olarak oturdu.
+Sahne güzelleşiyordu ama bir şeyler eksikti. Karar anı burada geldi: Sahne çözünürlüğünü 480×270’ten 960×540’a çıkardık; Korel 64 piksel kaldı. Karakter ekranda küçüldü, arka plana devasa gotik kale ve yıkık heykeller yerleşti. Oyuncu o kasvetli coğrafyada küçücük kalınca aradığım epik atmosfer tam olarak oturdu.
 
 ### 4. Dev Set Parçaları: Kod mu, Yapay Zekâ mı?
 Arka plana yıkılmış dev bir tanrı heykeli koymak istedik. Heykeli kodla çizdirmeye çalıştığımda sonuç tam bir felaket oldu. Bunun üzerine sistemi ikiye ayırdık:
@@ -54,15 +54,15 @@ Codex'e düz macenta zemin üzerinde tanrı başı çizdirdik. Claude yazdığı
 ## Yapay Zekânın Beceremediği Anlar
 
 1. **Komik Tanrı Başı:**
-   Kodla çizdirmeye çalıştığımız heykel başı yuvarlak bir kafatası, kenara sıkışmış gözler ve garip oranlarla çizgi film karakterine veya uzaylı maskesine benzedi. Geometrik hesaplamalar yüz anatomisi ve heykel yontma konusunda çok yetersiz kaldı.
+   Kodla çizdirmeye çalıştığımız heykel başı yuvarlak bir kafatası, kenara sıkışmış gözler ve garip oranlarla çizgi film karakterine veya uzaylı maskesine benzedi. Bu kodla çizim denemelerinde hedeflediğimiz yüz ifadesini yakalayamadık.
 2. **Matematiksel Düzen Hastalığı:**
-   Yapay zekâya "kale", "bulut" veya "kaya" dediğinizde varsayılan olarak kusursuz, eşit aralıklı ve cetvelle çizilmiş gibi şekiller üretiyor. Doğadaki yıpranmışlığı, rastgeleliği ve çatlakları yakalamak için sürekli "aşındır", "düz hat bırakma", "aralıkları boz" diye zorlamak gerekti.
+   Bu sahnenin ilk kodla çizim denemelerinde kale, bulut ve kayalar fazla düzenli, eşit aralıklı ve cetvelle çizilmiş gibi görünüyordu. Doğadaki yıpranmışlığı, rastgeleliği ve çatlakları yakalamak için sürekli "aşındır", "düz hat bırakma", "aralıkları boz" diye zorlamak gerekti.
 3. **Işık Halkaları (Bantlaşma):**
    Fener ışığını yumuşatmak için titreşimi (dither) kaldırdığımızda, ışık etrafında hedef tahtası gibi belirgin renk halkaları oluştu. Eklemeli ışığı yalnızca fenerin en yakınında tutarak çözebildik.
 4. **Kendi Işığıyla Gelen Görseller:**
-   Codex'ten aldığımız görsel kendi stüdyo ışığıyla geliyordu. Sahneye ilk koyduğumuzda arka plana sonradan yapıştırılmış parlak bir çıkartma gibi durdu. Gece değerlerine eşleme (value mapping) yapılmadan sahneye oturmadı.
+   Codex'ten aldığımız görsel kendi ışığıyla geliyordu. Sahneye ilk koyduğumuzda arka plana sonradan yapıştırılmış parlak bir çıkartma gibi durdu. Gece değerlerine eşleme (value mapping) yapılmadan sahneye oturmadı.
 5. **Telefondaki Siyah Ekran Vakası:**
-   Bilgisayarda kusursuz akan oyun, telefonda açıldığında yalnızca dokunmatik butonlar göründü; arka plan simsiyah kaldı. Claude ile incelediğimizde mobil GPU'ların doku boyutu sınırına takıldığımızı fark ettik (katmanlar 4700 pikseli aşıyordu). Katmanları 1024 piksellik parçalara bölüp uç uca ekleyince sorun çözüldü.
+   Bilgisayarda çalışan sahne telefonda açıldığında yalnızca dokunmatik butonlar göründü; arka plan simsiyah kaldı. Telefon GPU’sunun doku boyutu sınırından şüphelendik (katmanlar 4712 piksele kadar genişti). Katmanları 1024 piksellik parçalara bölüp uç uca ekleyince sorun çözüldü.
 
 ---
 
@@ -80,19 +80,20 @@ Codex'e düz macenta zemin üzerinde tanrı başı çizdirdik. Claude yazdığı
 Gölge Geçidi'nde artık yürüyebiliyoruz ama henüz karşımızda bir tehlike yok. Oyunun ilk düşmanı "Geçemeyen" adında ölemeyen bir varlık olacak.
 
 İzleyicilere iki seçenek sundum:
-1. **Zincirli Keşiş:** Sıska, kambur, boynunda ağır prangalar ve zincirlerle sarılı bir kitap taşıyan, soğuk alevli mumuyla gezinen bir keşiş.
-2. **Paslı Zırhlı Asker:** Göğsündeki ölüm yarasından soluk ışık sızan, yerde sürdüğü çentikli dev kılıcı ve yırtık peleriniyle yürüyen bir muhafız.
 
-Yorumlardan gelen oylara göre kazanan düşmanı Gün 2'de piksel piksel canlandırıp oyuna ekleyeceğim.
+1. **Zincirli Keşiş:** Son tasarımda sıska, tonsürlü kel kafası, kahverengi cüppesi, zincirle sarılı kitabı ve ayak prangasıyla bir keşiş.
+2. **Paslı Zırhlı Asker:** Göğsündeki ölüm yarasından ışık sızan, yerde sürünen çentikli kılıcı ve yırtık kızıl peleriniyle bir asker.
+
+Bu adaylar henüz oyunda değil. Oylamada kazananı Gün 2’de yapmayı planlıyorum; iki seçenek de yapılacak.
 
 ---
 
 ## Görseller
 
-### 1. Kodla Çizilen İlk Tanrı Başı (Komik Deneme)
-Yapay zekânın kodla heykel çizmeye çalışırken çuvalladığı ilk an:
+### 1. Kodla Çizilen Tanrı Başı (Yontma Denemesi)
+Komik bulunan önceki başın ardından yapılan yükseklik haritasıyla yontma denemesi:
 
-![Kodla Çizilen İlk Tanrı Başı](../gorseller/gun-01/2026-11-07-tanri-basi-t1.png)
+![Kodla Çizilen Tanrı Başı — Yontma Denemesi](../gorseller/gun-01/2026-11-07-tanri-basi-t1.png)
 
 ### 2. Codex'ten Gelen Ham Görsel
 Yapay zekâ görsel modeline düz zeminde ürettirdiğimiz devasa heykel illüstrasyonu:
@@ -104,7 +105,7 @@ Claude'un yazdığı algoritmayla görselin 24 renge indirgenip piksel ızgaras�
 
 ![Izgara ve Palete İndirgenmiş Hali](../gorseller/gun-01/2026-11-07-karma-2-izgara-palet.png)
 
-### 4. Kamera Açısı Karşılaştırması (480p vs 960p)
+### 4. Sahne Ölçeği Karşılaştırması (480×270 → 960×540)
 Kamerayı uzaklaştırıp dünyayı büyüttüğümüz anın ölçek kıyası:
 
 ![Kamera Karşılaştırması](../gorseller/gun-01/2026-11-07-sahne480-vs-960.png)

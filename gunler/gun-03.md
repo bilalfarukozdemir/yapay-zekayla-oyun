@@ -86,14 +86,7 @@ Bu işi anket istemedi. Yine de günün parçası yaptım; yalnız izleyicinin s
 
 ## Bu Gün İzleyiciye Sorulan Soru
 
-Kervanın ardından sıradaki düşmanı izleyiciye sordum. İki aday da Geçemeyen: ölememiş, yolda kalmış insanlar.
-
-İzleyicilere iki seçenek sundum:
-
-1. **Hızlı Gölge**
-2. **Ağır Kalıntı**
-
-Bunlar ikinci düşman için adaylar. Kapanışta “İkinci düşman?” diye sorup yorumlara 1 ya da 2 yazılmasını istedim.
+Sırada Eşik köyü var; köy henüz oyunda yok ve “Önce nereyi ekleyelim?” diye soruyorum. 1: Han Salonu, köy hanının sıcak, şömineli, masalı, köylülerin oturduğu salonu. 2: Tomur'un Ocağı, köyün demirci atölyesi; ocak sönmüş, körük büzülmüş, arkada demir sürgülü bir kapı var. Düşman daha önce sorulmuştu; bu kez yeniden sormuyorum, iki düşmanı kendim ekleyeceğim. Yoruma 1 ya da 2 yaz; kazananı ertesi gün oyuna ekleyeceğim.
 
 ---
 
@@ -125,6 +118,6 @@ Korel’in eğildiği anda “Bulundum.” yazısı görünüyor. Tek kare, ış
 ![Parça alınırken Bulundum yazısı](../gorseller/gun-03/2026-11-10-bulundum.png)
 
 ### 6. Gün 3 Oylama Kartı
-İkinci düşman için Hızlı Gölge ve Ağır Kalıntı önerileri, Korel’in karşısında gösteriliyor:
+Han Salonu ve Tomur'un Ocağı seçenekleri:
 
-![Gün 3 oylaması: Hızlı Gölge veya Ağır Kalıntı](../gorseller/gun-03/2026-11-10-oylama-karti.png)
+![Gün 3 oylaması: Han Salonu ve Tomur'un Ocağı seçenekleri](../gorseller/gun-03/2026-11-10-oylama-karti.png)

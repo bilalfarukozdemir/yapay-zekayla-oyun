@@ -1,118 +1,135 @@
-> **Varsayım notu:** Gün 3 videosunun oylaması bu yazı hazırlanırken henüz sayılmamıştı. Han Salonu'nun kazandığını varsayarak yazdım; sonuç farklı çıkarsa bu dosyayı düzelteceğim.
-
 # Gün 4: Eşik Köyü ve Hanın Kapısı
 
-Gün 3'te “Önce nereyi ekleyelim?” diye sormuştum; Han Salonu kazandı. Bugün han için önce bir köy gerekti. Oyuna ikinci harita olarak Eşik köyü girdi, hanın içi de oyunun ilk dövüşsüz yeri oldu.
+Gün 3’te “Önce nereyi ekleyelim?” diye sormuştum; yorumlarda Han Salonu kazandı. Bugün Eşik köyünü ve hanı oyuna ekledim. Ama bir iç mekân çizdirmek yetmedi: Telefonda ilk denemede Korel’in neredeyse kapı boyunda olduğunu ve oturmasının garip durduğunu gördüm. Oturma pozlarını yeniden çizdirdikten sonra telefondaki ikinci denemede bu kez sandalyenin içine geçtiğini fark ettim.
 
 ---
 
 ## Bugün Ne Yaptım
 
-Birinci haritanın sonundaki geçitten yürüyünce ekran kararıyor ve Korel Eşik köyünde açılıyor. Arka plan birinci haritadan tamamen farklı: göknar ormanı, yosunlu ve karlı çatılar, çamurlu yol ve sis. Köyün ortasında han duruyor. Kapıda hancı Doran Korel'i durduruyor: “Dur orada. Kuzey yolundan geliyorsun.” Korel: “Sıcak bir köşe istiyorum. Bir bardak su. Param var.” Doran: “Gir. Köşede otur, sessizce. Ben Doran.” Replikler bitmeden kapıdan girilemiyor.
+Birinci haritanın sonundaki gözlü taş kemeri geçiş kapısı yaptım. Önceden arka planda duran kemer artık oyun düzleminde. Haritanın kenarından geçişi kaldırdım; kemerin önünde etkileşim tuşuna basınca göz açılıyor, turkuaz ışık yayılıyor ve Korel kemerin içine girerek Eşik köyüne geçiyor.
 
-İçeride şömine, masalar, köylüler ve ateşin önünde yaşlı bir köpek var. Korel loş köşedeki sıraya oturabiliyor. Masada şifacı Celen ve kör Mira oturuyor; henüz konuşmuyorlar. Burada dövüş yok. Oyunun ilk iç mekânı bu.
+Köy ayrı bir harita: göknar ormanı, sis, çamur yol ve karlı çatılar var. Ortasında Doran’ın Hanı duruyor. İçeride şömine, masalar, sessizce bir şeyler içen köylüler ve ateşin önünde yaşlı bir köpek var. Burası oyunun ilk iç mekânı ve ilk dövüşsüz yeri. Celen ve Mira masada oturuyor; henüz konuşmuyorlar.
+
+Kapı geçişinin yanında karakterlerin paletini, Korel’in handaki ölçeğini ve oturmasını da değiştirdim. Günün önemli kısmı, ilk sonucun nerede bozulduğunu görmek ve düzeltmekle geçti. [Web demosu](https://veyra-aksiyon.vercel.app) Eşik köyü dahil güncellendi.
 
 ---
 
 ## Kullanılan Araçlar ve Teknikler
 
-- **Claude (Kod ve Yönetim):**
-  - Han sahnesi, replik sistemi, kapıdaki giriş koşulu ve ışık titremesi kodu.
-  - İşi birden çok yapay zekâ ajanına böldü; biri yazdı, başka bir sağlayıcıdan bir denetçi oyunu tarayıcıda oynayıp hata aradı.
-- **Codex (Görseller ve köy haritası):** Han cephesi, salon, Doran, Celen, Mira, köpek ve köy katmanları için görsel üretim aracından kaynak görseller; köy haritasının kodu ve haritalar arası kararmalı geçişler.
-- **Karma çizim:** Üretilen görselleri kodla piksel ızgarasına ve sınırlı palete indirdim: macenta zemin ayıklama, alan ölçekleme, palet indirgeme ve leke temizleme. Han için `art/han-karma.ts`, köy için `art/koy-karma.ts` çalışıyor.
-- **Tarayıcıda oynayarak denetim:** Denetçi, oyunun yayına çıkmamış yerel sürümünü tarayıcıda gerçek tuşlarla oynadı. 319 otomatik doğrulama geçiyor, build başarılı. Oyunun yayındaki web sürümü: [veyra-aksiyon.vercel.app](https://veyra-aksiyon.vercel.app).
+- **Claude (Kod):** Yazan ajan olarak çalıştı. İşi birden çok yapay zekâ ajanına bölüyorum.
+- **Codex (Görsel ve Denetim):** Görsel işlerini ve denetimi üstlendi. Yazan ve denetleyen ajanlar farklı sağlayıcılardan.
+- **Yapay zekâ görsel aracı:** Açık göz kareleri ve Korel’in oturma pozları üretildi. Kapıda yalnız göz bölgesi orijinal görselin üstüne bindirildi; oturma pozları piksel ızgarasına ve palete indirildi.
+- **Ortak renk bütçesi:** Doran, Celen ve Mira için Korel’le aynı 24 renk bütçesi, koyu kontur ve seyrek soğuk kenar ışığı kullanıldı.
+- **Oynayarak ve kare kare denetim:** Ben telefonda denedim; denetçi ajanlar geçiş davranışını, testleri ve tarayıcıdan alınan kareleri kontrol etti.
 
 ---
 
 ## Adım Adım
 
-### 1. Köyü Ayrı Bir Harita Yapmak
-İlk denemede hanı birinci haritanın ucuna koymuştum. Korel yürüyüp hana varıyordu ama köy hissi yoktu; han, aynı karanlık geçidin sonuna eklenmiş bir bina gibi duruyordu. “Köy ayrı harita olacak” dedim ve han yeni haritaya taşındı.
+### 1. Arka Plandaki Kemeri Kapıya Çevirmek
 
-Birinci haritadan geçiş, geçidin sonunda yürüyerek oluyor ve kararmayla köye açılıyor. Kıyas görselinde iki haritanın farkı net: üstte mor dağlar, ay ve yıkık heykel; altta çamur yol, göknar ormanı ve ışıklı han.
+Birinci haritanın sonunda kilit taşında kapalı göz olan harabe bir taş kemer vardı. Onu oyun düzlemine aldım. Artık köye gitmek için haritanın kenarına yürümek yerine kemerin önünde etkileşim tuşuna basılıyor.
 
-### 2. Köyün Katmanları
-Han cephesi, yan evler, göknarlar ve çamur yol ayrı katmanlar olarak üretildi. Yosunlu ve karlı çatıları, hanın sıcak pencereleriyle soğuk sis arasındaki farkı korumak istedim. Sis ve ışık titremesi kodla eklendi; çizim sabit, canlılığı koddan geliyor.
+Göz önce yarı, sonra tam açılıyor. Turkuaz ışık yayılıyor, kemerin içi aydınlanıyor. Korel içeri yürüyüp küçülerek soluyor; ekran kararıyor ve Eşik köyü açılıyor. Geçiş yaklaşık üç saniye sürüyor. Köyden dönünce Korel kemerin içinden çıkıyor, göz açık kalıyor.
 
-Zemin ilk seferde bulanık şeritlerden oluşuyordu. Köyün geri kalanıyla yan yana gelince okunmadı, yeniden yaptırdım.
+Gözün açık hâllerini yapay zekâ görsel aracıyla ürettim. Bütün kemeri değiştirmek yerine yalnız göz bölgesini orijinal çizimin üstüne bindirdim. Böylece aynı kapının açılmasını gösterebildim.
 
-### 3. Hanın Kapısında Doran
-Kapıda Doran'ın durdurması bir replik sahnesi. Doran “Dur orada. Kuzey yolundan geliyorsun.” der, Korel su ve sıcak bir köşe ister, Doran izin verir. Replikler bitmeden kapıdan girilemiyor. Bunu bir giriş koşulu olarak kodladık: oyuncu kapıya yürüyüp içeri kaçamıyor, önce konuşmayı dinlemek zorunda.
+### 2. Doran’ın İzniyle Hana Girmek
 
-### 4. Salon: İlk Dövüşsüz Yer
-Salonu oyunun ilk iç mekânı olarak kurdum. Şömine, masalar, köylüler ve ateşin önünde uyuyan köpek var. Korel loş köşedeki sıraya oturabiliyor. Masada Celen ve Mira oturuyor; henüz konuşmuyorlar. Bu iki karakter, kapanıştaki oylamanın konusu.
+Köyün ortasındaki hana gelince Doran durduruyor: “Dur orada. Kuzey yolundan geliyorsun.” Korel, “Sıcak bir köşe istiyorum. Bir bardak su. Param var.” diyor. Doran’ın cevabı: “Gir. Köşede otur, sessizce. Ben Doran.” Replikler bitmeden kapıdan girilemiyor.
 
-Karakterleri Korel ve Zincirli Keşiş'le aynı çizgide yan yana koyup ölçeğe baktım. Doran, Celen, Mira ve köpek, Korel'in yanında ölçek olarak tutuyor.
+İçerisi, dışarıdaki yolun ardından oyunun ilk dövüşsüz yeri. Şömine ve masalar var; Korel loş köşeye oturabiliyor. Masadaki Şifacı Celen ve Kör Mira henüz konuşmuyor. Sıradaki oylama, hangisinin Korel’in yanına önce geleceği üzerine.
 
-### 5. Denetçiyle Köyü Gezmek
-Yazan ajan işi bitirince başka bir sağlayıcıdan denetçi ajan oyunu tarayıcıda oynadı ve birkaç gerçek hata buldu; bunları aşağıda yazdım. Düzeltmelerden sonra han, köy ve geçiş birlikte çalıştı.
+### 3. Karakterleri Arka Plandan Ayırmak
+
+Doran, Celen ve Mira önceden koyulaştırılmıştı ve bu yüzden arka plana karışıyorlardı. Etkileşimli karakterlerin Korel ve Zincirli Keşiş gibi seçilmesi gerekiyordu.
+
+Üçüne koyu kontur, Korel’le aynı 24 renk bütçesi ve seyrek soğuk kenar ışığı uyguladık.
+
+### 4. Telefonda Görülen İki Sorun
+
+Oyunu telefonda denediğimde Korel handaki öteki karakterlere göre abartılı büyüktü; neredeyse kapı boyundaydı. Handa yüzde 20 küçülttük.
+
+İkinci sorun oturmaydı. Bekleme karesi kırpılarak oturmuş gibi gösteriliyordu ve garip duruyordu. Yapay zekâ görsel aracıyla çömelme, oturma, oturuşta nefes ve kalkma pozları çizdirdim. Sonra bunları ızgaraya ve palete indirdik.
+
+### 5. Bacakları Uzatırken Botları Bozmak
+
+Pozlar yeniden çizildikten sonra telefondaki ikinci denemede “otururken sandalyenin içine geçiyor” dedim. İlk düzeltme denemesinde bacak satırlarını kopyalayarak uzattık. Botlar çizgili sütunlara döndü. Uzunluk artmıştı ama bacağın ve botun biçimi bozulmuştu.
+
+Bu yolu bıraktık. Oturma karelerini doğru bacak oranıyla yeniden çizdirdik. Burada piksel satırını çoğaltmak, pozu düzeltmenin yerini tutmadı. Başarısız kıyası da aşağıya koydum; görselde “yeni” yazan alt sıra, son kabul edilen sonuç değil, bıraktığımız esnetme denemesi.
+
+### 6. Denetçinin Gördüğü Başka Sorunlar
+
+Köyden dönüş sinematiği sırasında basılan dokunmatik düğme, kontrol geri gelince Korel’i yeniden köye gönderiyordu. Denetçi bunu yakaladı. Bir testin de sahne geçişini bağlayan olay adı bozulduğunda bile geçtiği görüldü; artık bu bozulma testi kırmızıya düşürüyor.
+
+Oturma işinde animasyon ile konumun iki ayrı saatle ilerlediği bulundu. Tarayıcıda kare kare kayıt alan ajan kemerin içinin karanlık yerine amber olduğunu, Korel’in atılma pozuyla girdiğini ve sütunun önünden geçtiğini gördü. Bu üç görsel sorun düzeltildi.
 
 ---
 
 ## Yapay Zekânın Beceremediği Anlar
 
-1. **Haritayı Sıfırlayan Han:**
-   Handan birinci haritaya dönünce oradaki ilerleme sıfırlanıyordu; indirilen düşman geri geliyordu. Denetçi yakaladı.
-2. **Yanlış Celen:**
-   Oyundaki Celen kızıl saçlıydı, oylama kartındaki Celen koyu saçlı. Oyuna yanlış kaynak görsel girmişti. Kaynak önizlemede iki Celen adayı yan yana duruyor.
-3. **129 Piksel Uzaktan Giriş:**
-   Kapıdan 129 piksel uzaktayken içeri girilebiliyordu.
-4. **Kesik Ev, Havada Çatı:**
-   Köyde bir ev dikey bir çizgiyle kesikti ve havada duran bir çatı parçası vardı.
-5. **Bulanık Zemin:**
-   Köy zemini bulanık şeritlerdi; yeniden yapıldı.
-6. **“Taşma Yok” Diyen Kart:**
-   Oylama kartında başlık satırları üst üste binmişti. Kartı hazırlayan ajan “taşma yok” demişti.
-7. **Takılan Video Kaydı:**
-   Video kaydı takılıyordu. Kayıt tarayıcısına başka bir işin dört sekmesi açılmıştı. Kaydı ayrı bir tarayıcıya aldım.
+1. **Kırpılarak Oturan Korel:** Bekleme karesini kırpmak oturma pozu yerine geçmedi. Çömelme, oturma, nefes ve kalkma için ayrı pozlar çizdirdim.
+2. **Çizgili Botlar:** Sandalyenin içine geçen pozu bacak satırlarını kopyalayarak düzeltmeyi denedik. Botlar uzayan sütunlara benzedi; bu denemeyi bırakıp kareleri yeniden çizdirdik.
+3. **Bozuk Bağlantıda Bile Geçen Test:** Sahne geçişinin olay adı bozulsa da test yeşildi. Denetimden sonra aynı bozulma testi kırmızıya düşürüyor.
+4. **Dönüşte Yeniden Köye Gönderen Tuş:** Sinematik sırasında basılan dokunmatik düğmenin etkisi, kontrol geri gelince ortaya çıkıyordu. Denetçi dönüş sinematiğindeki dokunmatik hatayı yakaladı.
+5. **Kare Kare Görülen Yanlışlıklar:** Amber kemer içi, atılma pozu ve sütunun önünden geçiş kayıtta yakalandı ve düzeltildi.
 
 ---
 
 ## Dersler
 
-- **Başka sağlayıcıdan denetçi:** Yazan ajanın göremediği hatayı oyunu oynayan başka bir ajan gördü. Sıfırlanan ilerleme, uzak kapı ve kesik ev, testlerden değil oynamadan çıktı.
-- **“Taşma yok” sözüne değil görsele bak:** Kartı açıp bakmak, ajanın raporundan daha güvenilirdi.
-- **Kaynak görseli adıyla seç:** Aynı karakterin iki adayı vardı; yanlış olanı oyuna girdi. Hangi dosyanın seçildiğini not etmek gerekiyor.
-- **Kayıt ortamını ayır:** Video kaydı başka işlerle paylaşılan tarayıcıda takıldı. Ayrı tarayıcı sorunu çözdü.
-- **Yer yanlışsa taşı:** Hanı birinci haritanın ucunda tutmaya çalışmak yerine ayrı bir harita yapmak daha doğru sonuç verdi.
+- **Gerçek cihazda oyna:** Handaki fazla büyük Korel’i telefonda fark ettim. Aynı deneme oturma sorununu da görünür kıldı.
+- **Pozu satır çoğaltarak düzeltmeye çalışma:** Bacağı uzattık ama botun biçimini bozduk. Bu kez yeniden çizdirmek gerekti.
+- **Testi bilerek bozarak dene:** Geçiş bağlantısı bozulduğunda yeşil kalan test, o hatayı korumuyordu. Artık aynı durumda kırmızıya düşüyor.
+- **Sinematiğin dönüşünü ve tuşlarını da dene:** Dönüş sırasında basılan düğmenin etkisi, sahne bittikten sonra ortaya çıktı.
+- **Ayrı denetçi ve kare kaydı kullan:** Yazan ajan işini bitirse de poz, renk ve önde-arkada görünme sırası yanlış kalabildi. Kare kare kayıt bunları yakaladı.
+
+## Bilinen Eksik
+
+Korel’in gerçek yürüme animasyonu hâlâ yok. Kemere girerken bekleme karesine adım sekmesi eklendi. Kapı geçişi var, fakat bu hareketin yürüyüş çizimleri henüz yapılmadı.
 
 ---
 
 ## Bu Gün İzleyiciye Sorulan Soru
 
-“Handa Korel'in yanına önce kim gelsin?” 1: Şifacı Celen. 2: Kör Mira. Yoruma 1 ya da 2 yaz.
+“Handa Korel’in yanına önce kim gelsin?” 1: Şifacı Celen. 2: Kör Mira. Yoruma 1 ya da 2 yaz.
 
 ---
 
 ## Görseller
 
-### 1. Birinci Harita ve Köy Kıyası
-Üstte birinci harita: mor dağlar, ay, uzaktaki kale, yıkık heykel ve kırmızı sancak. Altta Eşik köyü: göknar ormanı, hanın ışıklı pencereleri, çamur yol, Korel ve Doran kapının yanında.
+### 1. Eşik Köyü
 
-![Birinci harita ile Eşik köyü kıyası](../gorseller/gun-04/2026-11-12-koy-kiyas.png)
+Ayrı haritanın görünümü; ortada Doran’ın Hanı, çevresinde evler ve göknarlar:
 
-### 2. Köyün Tamamı
-Han ortada, iki yanında yosunlu ve karlı çatılı evler, arkada göknarlar ve sis. Solda tabela, sağda kızıl göknarlar ve çit. Korel ve Doran hanın kapısı önünde.
+![Eşik köyü ve ortasındaki han](../gorseller/gun-04/2026-11-12-koy-onizleme.png)
 
-![Eşik köyünün tamamı](../gorseller/gun-04/2026-11-12-koy-onizleme.png)
+### 2. Kapı Geçişinin Kareleri
 
-### 3. Han Salonu
-Solda Korel, ortada masada Celen ve Mira, sağda iki köylü, en sağda şömine ve ateşin önünde uyuyan köpek.
+Soldan sağa: K ipucu, göz açık, Korel içeri yürüyor, en küçük an, dönüş. Bu kıyas, yaklaşık üç saniyelik geçişin tamamını hareketli olarak göstermiyor:
 
-![Han salonu](../gorseller/gun-04/2026-11-12-salon-onizleme.png)
+![Gözlü taş kemerden geçiş ve dönüş kareleri](../gorseller/gun-04/2026-11-12-kapi-kareleri.png)
 
-### 4. Karakter Ölçek Kıyası
-Soldan sağa: Korel, Zincirli Keşiş, yerde yatan beden, Doran, Celen ve Mira, köpek, han kapısı ve yine Korel.
+### 3. Gözün Açılması
 
-![Han karakterlerinin ölçek kıyası](../gorseller/gun-04/2026-11-12-han-karakter-kiyas.png)
+Kapalı, yarı açık ve açık gözün yakın kıyası. Kemerin tamamı yerine bu bölge değiştirildi:
 
-### 5. Yapay Zekâ Kaynak Görselleri
-Macenta zeminli han cepheleri, iç mekân denemeleri, Doran, Celen, Mira ve köpek adayları. Celen'in iki adayından biri koyu, biri kızıl saçlı; oyuna yanlış olan girmişti.
+![Kapalı, yarı açık ve turkuaz ışıklı açık göz](../gorseller/gun-04/2026-11-12-goz-kareleri.png)
 
-![Yapay zekâ kaynak görselleri](../gorseller/gun-04/2026-11-12-kaynak-onizleme.png)
+### 4. Karakterlerin Palet Kıyası
 
-### 6. Gün 4 Oylama Kartı
-“Handa önce kim gelsin?”: Şifacı Celen ve Kör Mira seçenekleri; yorumlara 1 ya da 2 yazılacak.
+Korel ve Zincirli Keşiş’in yanında Doran, Celen ve Mira. Ortak renk bütçesi ve konturlar, etkileşimli karakterleri arka plandan ayırmak için kullanıldı:
 
-![Gün 4 oylaması: Şifacı Celen ve Kör Mira](../gorseller/gun-04/2026-11-12-oylama-karti.png)
+![Korel, Keşiş, Doran, Celen ve Mira yan yana](../gorseller/gun-04/2026-11-12-palet-kiyas.png)
+
+### 5. Bıraktığımız Esnetme Denemesi
+
+Üst sıra esnetmeden önceki kareler, alt sıra satır kopyalayarak uzatılan hâlleri. Alt sıradaki çizgili botlar bu yöntemi neden bıraktığımızı gösteriyor:
+
+![Satır kopyalama denemesinde uzayıp biçimi bozulan botlar](../gorseller/gun-04/2026-11-12-esnetme-denemesi.png)
+
+### 6. Yeniden Çizilen Oturma
+
+Yeniden çizilen oturmanın sahnedeki hali:
+
+![Korel’in yeniden çizilen oturmasının hanın içindeki son hali](../gorseller/gun-04/2026-11-12-oturma-son.png)

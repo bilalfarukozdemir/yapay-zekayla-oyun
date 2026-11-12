@@ -42,6 +42,7 @@ Her devlog videosuna karşılık `gunler/` klasörü altında bir gün dosyası 
 - [Gün 1: Fikirden İlk Oynanabilir Sahneye](gunler/gun-01.md) — Pinterest panosundan ilham alıp dev set parçaları, hibrit piksel tekniği ve ilk web sürümüne uzanan ilk gün.
 - [Gün 2: İlk Düşman ve Uğurla](gunler/gun-02.md) — Zincirli Keşiş, karma yöntemle yenilenen karakterler ve dört vuruştan sonra başlayan üç saniyelik Uğurla penceresi.
 - [Gün 3: Devrik Kervan ve İçi Boş Bedenler](gunler/gun-03.md) — Aynı Uğurla tuşunun iki sonucu, ilk turkuaz ışık ve tek veri dosyasından içerik ekleme.
+- [Gün 4: Eşik Köyü ve Hanın Kapısı](gunler/gun-04.md) — İkinci harita, ilk iç mekân ve ilk dövüşsüz yer olan han salonu; başka bir yapay zekâ denetçisinin yakaladığı hatalar.
 
 ## Teknikler
 

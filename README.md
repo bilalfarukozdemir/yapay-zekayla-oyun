@@ -43,6 +43,7 @@ Her devlog videosuna karşılık `gunler/` klasörü altında bir gün dosyası 
 - [Gün 2: İlk Düşman ve Uğurla](gunler/gun-02.md) — Zincirli Keşiş, karma yöntemle yenilenen karakterler ve dört vuruştan sonra başlayan üç saniyelik Uğurla penceresi.
 - [Gün 3: Devrik Kervan ve İçi Boş Bedenler](gunler/gun-03.md) — Aynı Uğurla tuşunun iki sonucu, ilk turkuaz ışık ve tek veri dosyasından içerik ekleme.
 - [Gün 4: Eşik Köyü ve Hanın Kapısı](gunler/gun-04.md) — Gözlü kapıdan ikinci haritaya; karakterlerin paleti, telefonda fark edilen ölçek ve oturma sorunları, başarısız esnetme denemesi ve denetçinin yakaladıkları.
+- [Gün 5: Ölümün Bedeli ve Kaydın Gösterdiği Hatalar](gunler/gun-05.md) — Celen ve merhem, ölümden dönüş kuralı; ayrı denetçi, yeniden yazılan video metni ve ekran kaydında bulunan kırmızı siluet hatası.
 
 ## Teknikler
 
